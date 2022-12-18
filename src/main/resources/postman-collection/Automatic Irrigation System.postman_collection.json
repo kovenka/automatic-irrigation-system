@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "dbdcf723-eee3-4654-8dad-0f25ea58c5ad",
+		"name": "Automatic Irrigation System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Irrigation By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/automatic-irrigation-system/api/v1/irrigations/1001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"automatic-irrigation-system",
+						"api",
+						"v1",
+						"irrigations",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Plots and It's Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/automatic-irrigation-system/api/v1/plots",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"automatic-irrigation-system",
+						"api",
+						"v1",
+						"plots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Plot By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/automatic-irrigation-system/api/v1/plots/1005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"automatic-irrigation-system",
+						"api",
+						"v1",
+						"plots",
+						"1005"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit a Plot of Land with irrigation",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"name\": \"Corn Land\",\n  \"description\": \"Corn Land in Kashmir\",\n  \"latitude\": 10.1234567,\n  \"longitude\": 20.1234567,\n  \"cultivatedArea\": 2000,\n  \"areaUnit\": \"SQUARE_METER\",\n  \"agriculturalCropType\": \"CORN\",\n  \"irrigation\": {\n    \"id\": 1,\n    \"irrigationType\": \"SPRINKLER\",\n    \"amountOfWater\": 1000,\n    \"liquidUnit\": \"GALLON\",\n    \"duration\": 3600,\n    \"interval\": 21600,\n    \"irrigationStatus\": \"ACTIVE\",\n    \"nextIrrigationAt\": \"2022-12-18T14:30:15.620801\"\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/automatic-irrigation-system/api/v1/plots",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"automatic-irrigation-system",
+						"api",
+						"v1",
+						"plots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Plot of Land with irrigation configuration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Corn Land2\",\n  \"description\": \"Corn Farm\",\n  \"latitude\": 10.1234567,\n  \"longitude\": 20.1234567,\n  \"cultivatedArea\": 2000,\n  \"areaUnit\": \"SQUARE_METER\",\n  \"agriculturalCropType\": \"CORN\",\n  \"irrigation\": {\n    \"irrigationType\": \"SPRINKLER\",\n    \"amountOfWater\": 1000,\n    \"liquidUnit\": \"GALLON\",\n    \"duration\": 3600,\n    \"interval\": 21600,\n    \"irrigationStatus\": \"ACTIVE\",\n    \"nextIrrigationAt\": \"2022-12-18T14:30:15.620801\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/automatic-irrigation-system/api/v1/plots",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"automatic-irrigation-system",
+						"api",
+						"v1",
+						"plots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Plot By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/automatic-irrigation-system/api/v1/plots/1001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"automatic-irrigation-system",
+						"api",
+						"v1",
+						"plots",
+						"1001"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mock Sensor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/automatic-irrigation-system/api/v1/sensor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"automatic-irrigation-system",
+						"api",
+						"v1",
+						"sensor"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

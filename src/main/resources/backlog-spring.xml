@@ -1,0 +1,48 @@
+<configuration>
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %yellow(%msg%n)</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="globalAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="encoding" value="UTF-8"/>
+        <param name="file" value="${LOG_FILE}"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{HH:mm:ss} %p [%t] %C{1}.%M(%L) \t| %m%n"/>
+        </layout>
+    </appender>
+
+    <springProfile name="prod">
+        <root level="INFO">
+            <appender-ref ref="consoleAppender"/>
+            <appender-ref ref="globalAppender"/>
+        </root>
+        <include resource="org/springframework/boot/logging/logback/base.xml"/>
+        <root level="INFO">
+            <appender-ref ref="consoleAppender"/>
+            <appender-ref ref="globalAppender"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="local | develop">
+        <include resource="org/springframework/boot/logging/logback/base.xml"/>
+        <logger name="com.andela" level="DEBUG" additivity="false">
+            <appender-ref ref="consoleAppender"/>
+            <appender-ref ref="globalAppender"/>
+        </logger>
+        <root level="INFO">
+            <appender-ref ref="consoleAppender"/>
+            <appender-ref ref="globalAppender"/>
+        </root>
+    </springProfile>
+
+    <logger name="com.andela" level="DEBUG" additivity="false">
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="globalAppender"/>
+    </logger>
+    <root level="DEBUG">
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="globalAppender"/>
+    </root>
+</configuration>
